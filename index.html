@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,15 +11,27 @@
     <header class="py-5 lg:py-16">
         <nav class="flex items-center">
             <img src="./assets/images/logo.svg" alt="News"  class="mr-auto h-6 lg:h-10"/>
+            <div class="hidden fixed flex inset-0 bg-gray-900/50" id="overlay">
+                <div class="bg-neutral-offwhite w-3/5 ml-auto p-5">
+                    <img src="./assets/images/icon-menu-close.svg" alt="Close" class="ml-auto h-6 cursor-pointer" data-close-logo/>
+                    <ul class="flex flex-col space-y-5 text-gray-700 mt-16">
+                        <li><a href="#" class="hover:text-soft-red">Home</a></li>
+                        <li><a href="#new_panel" class="hover:text-soft-red">New</a></li>
+                        <li><a href="#" class="hover:text-soft-red">Popular</a></li>
+                        <li><a href="#" class="hover:text-soft-red">Trending</a></li>
+                        <li><a href="#" class="hover:text-soft-red">Categories</a></li>
+                    </ul>
+                </div>       
+            </div>
             <ul class="hidden lg:flex space-x-8 text-gray-700" id="navlinks">
                 <li><a href="#" class="hover:text-soft-red">Home</a></li>
-                <li><a href="#" class="hover:text-soft-red">New</a></li>
+                <li><a href="#new_panel" class="hover:text-soft-red">New</a></li>
                 <li><a href="#" class="hover:text-soft-red">Popular</a></li>
                 <li><a href="#" class="hover:text-soft-red">Trending</a></li>
                 <li><a href="#" class="hover:text-soft-red">Categories</a></li>
             </ul>   
             <div>
-                <img src="./assets/images/icon-menu.svg" class="lg:hidden"/>
+                <img src="./assets/images/icon-menu.svg" class="lg:hidden cursor-pointer" data-open-logo/>
             </div>
         </nav>
     </header>
@@ -101,5 +113,21 @@
             </article>
         </div>
     </div>
+    <script>
+        const overlay = document.getElementById('overlay');
+        const toggleClose = document.querySelector('[data-close-logo]');
+        const toggleOpen = document.querySelector('[data-open-logo]')
+
+        overlay.addEventListener('click', () => {
+            overlay.classList.add('hidden')
+        })
+
+        toggleClose.addEventListener('click', () => {
+            overlay.classList.add('hidden')
+        })
+        toggleOpen.addEventListener('click', () => {
+            overlay.classList.remove('hidden')
+        })
+    </script>
 </body>
 </html>
