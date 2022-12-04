@@ -15,6 +15,9 @@ module.exports = {
           darkblue: 'hsl(240, 100%, 5%)',
         },
       },
+      fontSize: {
+        pmd: '0.9375rem',
+      },
     },
   },
   plugins: [],
